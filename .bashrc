@@ -62,6 +62,7 @@ gtcm() { command git commit -S -m "${@}"; }
 gtrb() { command git rebase -i HEAD~"${@}"; }
 gtst() { command git stash; }
 gtsp() { command git stash pop; }
+gtad() { command git add "${@}"; }
 
 # path
 export PATH=$HOME/.local/bin:$PATH
