@@ -63,6 +63,7 @@ gtrb() { command git rebase -i HEAD~"${@}"; }
 gtst() { command git stash; }
 gtsp() { command git stash pop; }
 gtad() { command git add "${@}"; }
+gtst() { command git status; }
 
 # path
 export PATH=$HOME/.local/bin:$PATH
