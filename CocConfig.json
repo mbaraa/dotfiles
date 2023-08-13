@@ -1,0 +1,76 @@
+{
+  "suggest.noselect": false,
+  "diagnostic.errorSign": "✘",
+  "diagnostic.warningSign": "!",
+  "diagnostic.infoSign": "?",
+  "diagnostic.checkCurrentLine": true,
+  "coc.preferences.formatOnSaveFiletypes": [
+    "javascript",
+    "javascriptreact",
+    "html",
+    "svelte",
+    "json",
+    "css",
+    "scss",
+    "go",
+    "typescript",
+    "typescriptreact",
+    "rust",
+    "java"
+  ],
+  "languageserver": {
+    "golang": {
+      "command": "gopls",
+      "rootPatterns": ["go.mod"],
+      "filetypes": ["go"]
+    },
+    "ccls": {
+      "command": "ccls",
+      "filetypes": ["c", "cc", "cpp", "c++", "objc", "objcpp"],
+      "rootPatterns": [".ccls", "compile_commands.json", ".git/", ".hg/"],
+      "initializationOptions": {
+        "cache": {
+          "directory": "/tmp/ccls"
+        }
+      }
+    }
+  },
+  "go.goplsOptions": {
+    "staticcheck": true
+  },
+  "eslint.autoFixOnSave": true,
+  "eslint.filetypes": [
+    "svelte",
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
+  ],
+  "tailwindCSS.trace.server": true,
+  "tailwindCSS.emmetCompletions": true,
+  "tailwindCSS.cssLanguages": [
+    "css",
+    "less",
+    "postcss",
+    "sass",
+    "scss",
+    "stylus",
+    "svelte",
+    "vue"
+  ],
+  "tailwindCSS.jsLanguages": [
+    "svelte",
+    "javascript",
+    "javascriptreact",
+    "reason",
+    "typescriptreact"
+  ],
+  "java.configuration.runtimes": [
+    {
+      "name": "JavaSE-11",
+      "path": "/opt/openjdk-bin-11",
+      "default": true
+    }
+  ],
+  "svelte.enable-ts-plugin": true
+}

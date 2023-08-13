@@ -1,0 +1,7 @@
+require("mbaraa.remap")
+require("mbaraa.theme")
+-- require("mbaraa.packer")
+require("mbaraa.numbers")
+require("mbaraa.cursorlines")
+require("mbaraa.linewrapping")
+require("mbaraa.tabsize")

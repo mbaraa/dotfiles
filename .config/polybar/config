@@ -1,0 +1,577 @@
+;==========================================================
+;
+;
+;   ██████╗  ██████╗ ██╗  ██╗   ██╗██████╗  █████╗ ██████╗
+;   ██╔══██╗██╔═══██╗██║  ╚██╗ ██╔╝██╔══██╗██╔══██╗██╔══██╗
+;   ██████╔╝██║   ██║██║   ╚████╔╝ ██████╔╝███████║██████╔╝
+;   ██╔═══╝ ██║   ██║██║    ╚██╔╝  ██╔══██╗██╔══██║██╔══██╗
+;   ██║     ╚██████╔╝███████╗██║   ██████╔╝██║  ██║██║  ██║
+;   ╚═╝      ╚═════╝ ╚══════╝╚═╝   ╚═════╝ ╚═╝  ╚═╝╚═╝  ╚═╝
+;
+;
+;   To learn more about how to configure Polybar
+;   go to https://github.com/polybar/polybar
+;
+;   The README contains a lot of information
+;
+;==========================================================
+
+[colors]
+background = #282828
+background-alt = #660066
+foreground = #ffffff
+foreground-alt = #555
+primary = #009900
+secondary = #e60053
+alert = #bd2c40
+
+# Monitor 1
+[bar/mon1]
+monitor = ${env:MONITOR:eDP1}
+width = 100%
+height = 30
+;offset-x = 1%
+;offset-y = 1%
+radius = 8.0
+fixed-center = false
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+line-size = 3
+#;line-color = #f00
+
+border-size = 8
+
+padding-left =  2
+padding-right = 2
+
+module-margin-left = 1
+module-margin-right = 1
+
+font-0 = Terminess Nerd Font:pixelsize=9;1
+font-1 = Terminess Nerd Font:fontformat=truetype:size=9:antialias=false;0
+font-2 = Terminess Nerd Font:pixelsize=9;1
+
+modules-left = i3  xwindow
+modules-center = player-moc date weather
+modules-right = volume xkeyboard memory system-cpu-frequency system-cpu-temppercore kdeconnect network wlan eth battery powermenu
+
+tray-position = right
+tray-padding = 1
+;tray-background = #0063ff
+
+wm-restack = i3
+
+;override-redirect = true
+
+;scroll-up = i3wm-wsnext
+;scroll-down = i3wm-wsprev
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+# Monitor 2
+[bar/mon2]
+monitor = ${env:MONITOR:HDMI2}
+width = 100%
+height = 26
+;offset-x = 1%
+;offset-y = 1%
+radius = 8.0
+fixed-center = false
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+line-size = 3
+#;line-color = #f00
+
+border-size = 8
+
+padding-left =  2
+padding-right = 2
+
+module-margin-left = 1
+module-margin-right = 1
+
+font-0 = Terminess Nerd Font:pixelsize=9;1
+font-1 = Terminess Nerd Font:fontformat=truetype:size=9:antialias=false;0
+font-2 = Terminess Nerd Font:pixelsize=9;1
+
+modules-left = i3  xwindow
+modules-center = player-moc date weather
+modules-right = volume xkeyboard memory system-cpu-frequency system-cpu-temppercore network wlan eth battery powermenu
+
+tray-position = right
+tray-padding = 1
+;tray-background = #0063ff
+
+wm-restack = i3
+
+;override-redirect = true
+
+;scroll-up = i3wm-wsnext
+;scroll-down = i3wm-wsprev
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+# Monitor 3
+[bar/mon3]
+monitor = ${env:MONITOR:DVI-I-2-1}
+width = 100%
+height = 30
+;offset-x = 1%
+;offset-y = 1%
+radius = 8.0
+fixed-center = false
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+line-size = 3
+#;line-color = #f00
+
+border-size = 8
+
+padding-left =  2
+padding-right = 2
+
+module-margin-left = 1
+module-margin-right = 1
+
+font-0 = Terminess Nerd Font:pixelsize=9;1
+font-1 = Terminess Nerd Font:fontformat=truetype:size=9:antialias=false;0
+font-2 = Terminess Nerd Font:pixelsize=9;1
+
+modules-left = i3  xwindow
+modules-center = player-moc date weather
+modules-right = volume xkeyboard memory system-cpu-frequency system-cpu-temppercore kdeconnect network wlan eth battery powermenu
+
+tray-position = right
+tray-padding = 1
+;tray-background = #0063ff
+
+wm-restack = i3
+
+;override-redirect = true
+
+;scroll-up = i3wm-wsnext
+;scroll-down = i3wm-wsprev
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+# Monitor 4
+[bar/mon4]
+monitor = ${env:MONITOR:DVI-I-3-2}
+width = 100%
+height = 30
+;offset-x = 1%
+;offset-y = 1%
+radius = 8.0
+fixed-center = false
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+line-size = 3
+#;line-color = #f00
+
+border-size = 8
+
+padding-left =  2
+padding-right = 2
+
+module-margin-left = 1
+module-margin-right = 1
+
+font-0 = Terminess Nerd Font:pixelsize=9;1
+font-1 = Terminess Nerd Font:fontformat=truetype:size=9:antialias=false;0
+font-2 = Terminess Nerd Font:pixelsize=9;1
+
+modules-left = i3  xwindow
+modules-center = player-moc date weather
+modules-right = volume xkeyboard memory system-cpu-frequency system-cpu-temppercore kdeconnect network wlan eth battery powermenu
+
+tray-position = right
+tray-padding = 1
+;tray-background = #0063ff
+
+wm-restack = i3
+
+;override-redirect = true
+
+;scroll-up = i3wm-wsnext
+;scroll-down = i3wm-wsprev
+
+cursor-click = pointer
+cursor-scroll = ns-resize
+
+[module/weather]
+type = custom/script
+exec = ~/.config/polybar/scripts/weather.py
+format-prefix = " "
+format-underline = #f900f9
+format-prefix-foreground = ${colors.foreground-alt}
+interval = 600
+tail = true
+
+[module/system-cpu-frequency]
+type = custom/script
+exec = ~/.config/polybar/scripts/cpufreq.sh
+format-prefix = " "
+format-underline = #f90000
+format-prefix-foreground = ${colors.foreground-alt}
+interval = 2
+tail = true
+
+[module/network]
+type = custom/script
+exec = ~/.config/polybar/scripts/check-network.sh
+format-background = #282828
+format-underline = #44aa66
+format-padding = 2
+click-left = kitty -e nmtui
+tail = true
+
+[module/player-moc]
+type = custom/script
+exec = ~/.config/polybar/scripts/player_moc.sh
+exec-underline = #b3003b
+format-prefix = " "
+format-underline = #ff1a8c
+interval = 3
+click-left = mocp -f
+click-right = mocp -r
+click-middle = mocp -G
+
+[module/xwindow]
+type = internal/xwindow
+label =  %title:0:30:...%
+label-underline = #00b300
+
+[module/xkeyboard]
+type = internal/xkeyboard
+blacklist-0 = num lock
+
+format-prefix = " "
+format-prefix-foreground = ${colors.foreground-alt}
+format-prefix-underline = ${colors.secondary}
+
+label-layout = %layout%
+label-layout-underline = ${colors.secondary}
+
+label-indicator-padding = 2
+label-indicator-margin = 1
+label-indicator-background = ${colors.secondary}
+label-indicator-underline = ${colors.secondary}
+
+[module/filesystem]
+type = internal/fs
+interval = 25
+
+mount-0 = /
+
+label-mounted =  : %percentage_used%%
+label-unmounted = %mountpoint% not mounted
+label-unmounted-foreground = ${colors.foreground-alt}
+label-mounted-underline = #00b300
+
+[module/i3]
+type = internal/i3
+format = <label-state> <label-mode>
+index-sort = true
+wrapping-scroll = false
+
+; Only show workspaces on the same output as the bar
+;pin-workspaces = true
+
+label-mode-padding = 1
+label-mode-foreground = #000
+label-mode-background = ${colors.primary}
+
+; focused = Active workspace on focused monitor
+label-focused = %name%
+label-focused-background = ${colors.background-alt}
+label-focused-underline= ${colors.primary}
+label-focused-padding = 1
+
+; unfocused = Inactive workspace on any monitor
+label-unfocused = %name%
+label-unfocused-padding = 1
+
+; visible = Active workspace on unfocused monitor
+label-visible = %name%
+label-visible-background = ${self.label-focused-background}
+label-visible-underline = ${self.label-focused-underline}
+label-visible-padding = ${self.label-focused-padding}
+
+; urgent = Workspace with urgency hint set
+label-urgent = %name%
+label-urgent-background = ${colors.alert}
+label-urgent-padding = 1
+
+; Separator in between workspaces
+label-separator = |
+
+
+[module/mpd]
+type = internal/mpd
+format-online = <label-song>  <icon-prev> <icon-stop> <toggle> <icon-next>
+
+icon-prev = ﭣ
+icon-stop = 
+icon-play = 
+icon-pause = 
+icon-next = ﭡ
+
+label-song-maxlen = 25
+label-song-ellipsis = true
+
+
+[module/cpu]
+type = internal/cpu
+interval = 2
+format-prefix = " "
+format-prefix-foreground = ${colors.foreground-alt}
+format-underline = #f90000
+label = %percentage:2%%
+
+[module/memory]
+type = internal/memory
+interval = 2
+format-prefix = " "
+format-prefix-foreground = ${colors.foreground-alt}
+format-underline = #4bffdc
+label = %percentage_used%%
+
+
+[module/wlan]
+type = internal/network
+interface = wlp2s0
+interval = 3.0
+#bitch
+click-left = ~/.bin/rofi-wifi.py
+click-right = nm-connection-editor
+;click-middle =
+
+format-connected =  <label-connected>
+format-connected-underline = #9f78e1
+label-connected =   %downspeed%  %upspeed%
+
+format-disconnected =
+;format-disconnected = <label-disconnected>
+;format-disconnected-underline = ${self.format-connected-underline}
+;label-disconnected = %ifname% disconnected
+;label-disconnected-foreground = ${colors.foreground-alt}
+
+ramp-signal-0 = 睊
+ramp-signal-1 = 直 
+ramp-signal-2 = 直 
+ramp-signal-3 = 直 
+ramp-signal-4 = 
+ramp-signal-foreground = ${colors.foreground-alt}
+
+[module/eth]
+type = internal/network
+interface = enp2s0 eth0 enp3*
+interval = 3.0
+
+format-connected-underline = #55aa55
+format-connected-prefix = " "
+format-connected-prefix-foreground = ${colors.foreground-alt}
+label-connected = %local_ip% | %linkspeed%  |  %downspeed%  %upspeed%
+
+format-disconnected =
+;format-disconnected = <label-disconnected>
+;format-disconnected-underline = ${self.format-connected-underline}
+;label-disconnected = %ifname% disconnected
+;label-disconnected-foreground = ${colors.foreground-alt}
+
+[module/volume]
+type = internal/volume
+
+format-volume = <bar-volume>
+format-volume-underline = #5c00e6
+
+label-volume = VOL
+label-volume-foreground = #ffffff
+label-volume-underline = #cc0099
+
+label-muted =   muted
+label-muted-foreground = #ffffff
+label-muted-underline = #cc0099
+
+bar-volume-width = 10
+bar-volume-foreground-0 = #8c9440
+bar-volume-foreground-1 = #8c9440
+bar-volume-foreground-2 = #8c9440
+bar-volume-foreground-3 = #8c9440
+bar-volume-foreground-4 = #a54242
+bar-volume-foreground-5 = #a54242
+bar-volume-gradient = false
+bar-volume-indicator = 
+bar-volume-indicator-font = 4
+bar-volume-indicator-foreground = #c5c8c6
+bar-volume-fill = 
+bar-volume-fill-font = 4
+bar-volume-empty = 
+bar-volume-empty-font = 4
+bar-volume-empty-foreground = #585858
+
+
+[module/date]
+type = internal/date
+interval = 5
+
+date =
+date-alt = "  %m-%d-%Y"
+
+time = %H:%M
+time-alt =  %H:%M:%S
+
+format-prefix = 
+format-prefix-foreground = ${colors.foreground-alt}
+format-underline = #0a6cf5
+
+label = %date% %time%
+
+[module/pulseaudio]
+type = internal/pulseaudio
+use-ui-max = true
+format-volume = <ramp-volume> <label-volume>
+format-volume-underline = #9f78e1
+ramp-volume-0 = 奄
+ramp-volume-1 = 奔
+ramp-volume-2 = 墳
+ramp-volume-foreground = ${colors.foreground-alt}
+label-volume =  %percentage%%
+label-volume-foreground = #ffffff
+label-muted = 婢 muted
+label-muted-foreground = #ffffff
+
+[module/battery]
+type = internal/battery
+battery = BAT0
+adapter = ADP0
+full-at = 98
+
+format-charging = <animation-charging> <label-charging>
+format-charging-underline = #ffb52a
+
+format-discharging = <animation-discharging> <label-discharging>
+format-discharging-underline = ${self.format-charging-underline}
+
+format-full-prefix = " "
+format-full-prefix-foreground = ${colors.foreground-alt}
+format-full-underline = ${self.format-charging-underline}
+
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+ramp-capacity-5 = 
+ramp-capacity-6 = 
+ramp-capacity-7 = 
+ramp-capacity-8 = 
+ramp-capacity-9 = 
+ramp-capacity-foreground = ${colors.foreground-alt}
+
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+animation-charging-5 = 
+animation-charging-6 = 
+animation-charging-foreground = ${colors.foreground-alt}
+animation-charging-framerate = 400
+
+animation-discharging-0 = ﴅ
+animation-discharging-1 = ﴎ
+animation-discharging-2 = ﴍ
+animation-discharging-3 = ﴌ
+animation-discharging-4 = ﴋ
+animation-discharging-5 = ﴊ
+animation-discharging-6 = ﴉ
+animation-discharging-7 = ﴈ
+animation-discharging-8 = ﴇ
+animation-discharging-9 = ﴆ
+animation-discharging-foreground = ${colors.foreground-alt}
+animation-discharging-framerate = 500
+
+[module/powermenu]
+type = custom/menu
+
+format-foreground = #b30000
+format-background = #282828
+; #330033
+format-underline = #003399
+
+label-open = "  "
+label-open-font = Ubuntu Mono Nerd Font:pixelsize=9;1
+
+label-close = ""
+label-close-foreground = #b30000
+label-separator = " / "
+label-separator-foreground = #ffffff
+
+
+; reboot
+menu-0-1 = ""
+menu-0-1-exec = loginctl reboot
+menu-0-1-foreground = #003399
+; shutdown
+menu-0-0 = ""
+menu-0-0-exec = loginctl poweroff
+menu-0-0-foreground = #003399
+;suspend
+menu-0-2 = "﬙"
+menu-0-2-exec = ~/.config/i3/lock.sh && loginctl suspend
+menu-0-2-foreground = #003399
+;hibernate
+menu-0-3 = ""
+menu-0-3-exec = ~/.config/i3/lock.sh && loginctl hibernate
+menu-0-3-foreground = #003399
+;logout
+menu-0-4 = "﫼"
+menu-0-4-exec = "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+menu-0-4-foreground = #003399
+
+[module/system-usb-udev]
+type = custom/script
+exec = ~/.config/polybar/scripts/usb_udev.sh
+tail = true
+click-left = ~/.config/polybar/scripts/usb_udev.sh --mount
+click-right = ~/.config/polybar/scripts/usb_udev.sh --unmount
+
+[module/system-cpu-temppercore]
+type = custom/script
+exec = ~/.config/polybar/scripts/cputemp.sh
+format-prefix = " "
+format-prefix-foreground = ${colors.foreground-alt}
+format-underline = #00b300
+interval = 40
+
+;[module/kdeconnect]
+;type = custom/script
+;exec = ~/.config/polybar/scripts/polybar-kdeconnect.sh -d
+;tail = true
+
+[settings]
+screenchange-reload = true
+compositing-background = compton
+;compositing-background = screen
+;compositing-foreground = compton
+compositing-border = compton
+;pseudo-transparency = false
+
+[global/wm]
+margin-top = 5
+margin-bottom = 5
+
+; vim:ft=dosini
+

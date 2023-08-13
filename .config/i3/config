@@ -1,0 +1,343 @@
+#Hexagon16's Configuration
+
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+#KeyBindings:
+
+# set mod key to super(windows):
+set $mod Mod4
+
+#bindsym $mod+shift+x exec  ~/.bin/system_menu.sh
+bindsym $mod+x exec ~/.config/i3/lock.sh
+
+#Keyboard layout
+exec_always --no-startup-id "setxkbmap -model pc105 -layout us,sy -option grp:alt_shift_toggle"
+
+# Pulse Audio controls
+#bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
+#bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
+#bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+
+bindsym $mod+Prior exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
+bindsym $mod+Next exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
+bindsym $mod+Home exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+
+
+# start a terminal
+bindsym $mod+Return exec kitty
+
+# kill focused window
+bindsym $mod+Shift+q kill
+
+# start Rofi
+bindsym $mod+d exec $HOME/.config/rofi/launchers/type-1/launcher.sh #rofi -show drun -theme solarized -font "Comic Mono 14" -show combi -icon-theme "Fluent purple dark" -show-icons # Rofi combi
+bindsym $mod+shift+w exec ~/.local/bin/rofi-wifi.py # rofi wifi menu
+
+
+# change focus
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# move focused window
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# split in horizontal orientation
+bindsym $mod+h split h
+
+# split in vertical orientation
+bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+#External Display Shortcut :
+bindsym $mod+o exec ~/.local/bin/HDMI_OUT.sh
+bindsym $mod+shift+o exec ~/.local/bin/eDP_ONLY.sh
+
+#Udiskie:
+bindsym $mod+u exec udiskie
+
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+# screenshotting
+bindsym --release shift+Print exec gnome-screenshot -w
+bindsym --release ctrl+Print exec gnome-screenshot -a
+bindsym --release Print exec  scrot ~/General/Groot/Screens/screen@$(date +"%R-%m_%d_%Y").png
+
+# bucklespring keyboard sound
+# bindsym $mod+b exec buckle
+
+#Look & Feel
+#Font Settings:
+font pango:Terminess Nerd Font 9
+
+######################################
+# color settings for bar and windows #
+######################################
+
+# Define colors variables:
+set $darkbluetrans  #08052be6
+set $darkblue       #08052b
+set $lightblue      #5294e2
+set $urgentred      #e53935
+set $white      #ffffff
+set $black      #000000
+set $purple     #e345ff
+set $darkgrey       #383c4a
+set $grey       #b0b5bd
+set $mediumgrey     #8b8b8b
+set $yellowbrown    #e1b700
+
+# Theme colors
+client.focused              $lightblue  $darkblue   $white      $mediumgrey $mediumgrey
+client.unfocused            $darkblue   $darkblue   $grey       $darkgrey   $darkgrey
+client.focused_inactive     $darkblue   $darkblue   $grey       $black      $black
+client.urgent               $urgentred  $urgentred  $white      $yellowbrown    $yellowbrown
+
+#client.background       $i3_background
+
+##################
+# Border control #
+##################
+# Border control
+
+set $border_size 2
+
+# hide_edge_borders both
+bindsym $mod+shift+b exec --no-startup-id i3-msg border toggle
+bindsym $mod+t border pixel 0
+bindsym $mod+y border pixel $border_size
+# new_window pixel $border_size
+
+# new_window normal
+new_window pixel $border_size
+#new_float pixel 1
+
+new_float pixel $border_size
+#new_float none
+#border_radius 4
+
+
+##################
+# Popups control #
+##################
+#Popups during fullscreen mode
+popup_during_fullscreen smart
+
+############
+#Workspaces
+############
+#Workspaces Variables
+set $ws1 "1: "
+set $ws2 "2: "
+set $ws3 "3: "
+set $ws4 "4: "
+set $ws5 "5:塞 "
+set $ws6 "6: "
+set $ws7 "7: "
+set $ws8 "8: "
+set $ws9 "9: "
+set $ws10 "10: "
+set $ws11 "11: "
+
+# switch to workspace
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
+bindsym $mod+p workspace $ws11
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws10
+bindsym $mod+Shift+p move container to workspace $ws11
+
+# workspaces screens
+set $mon1 "eDP1"
+set $mon2 "HDMI1"
+workspace $ws1 output $mon1
+workspace $ws2 output $mon2
+workspace $ws3 output $mon1
+workspace $ws4 output $mon1
+workspace $ws5 output $mon2
+workspace $ws6 output $mon1
+workspace $ws7 output $mon1
+workspace $ws8 output $mon2
+workspace $ws9 output $mon2
+workspace $ws10 output $mon1
+workspace $ws11 output $mon1
+
+#Assign Programs to Workspaces
+assign [class="vlc"] $ws7
+assign [class="Firefox"] $ws3
+assign [class="java-lang-Thread"] $ws3
+assign [class="Thunar"] $ws4
+assign [class="Xarchiver"] $ws4
+assign [class="Mainwindow.py"] $ws9
+assign [class="PPSSPPSDL"] $ws9
+assign [class="qBittorrent"] $ws3
+assign [class="Notepadqq"] $ws2
+assign [class="Foxit Reader"] $ws6
+assign [class="Steam"] $ws9
+assign [class="Tuxcut.py"] $ws3
+assign [class="VirtualBox Manager"] $ws11
+assign [class="VirtualBox Machine"] $ws10
+assign [class="Xfce4-display-settings"] $ws10
+assign [class="Arandr"] $ws10
+assign [class="Clementine"] $ws7
+assign [class="Amarok"] $ws7
+assign [class="GParted"] $ws10
+assign [class="Gnome-disks"] $ws10
+# assign [class="Xfce4-terminal"] $ws1
+assign [class="i-nex.gambas"] $ws11
+assign [class="Uget-gtk"] $ws3
+assign [class="etcher-electron"] $ws11
+assign [class="Google-chrome"] $ws3
+assign [class="Nitrogen"] $ws10
+assign [class="Lxappearance"] $ws10
+assign [class="Wicd-client.py"] $ws3
+assign [class="Brasero"] $ws8
+assign [class="MEGAsync"] $ws3
+assign [class="Nautilus"] $ws4
+assign [class="Gnome-system-monitor"] $ws10
+assign [class="rosettastoneversion3.exe"] $ws5
+assign [class="Pavucontrol"] $ws10
+assign [class="Blender"] $ws8
+assign [class="Gimp"] $ws8
+assign [class="libreoffice-writer"] $ws6
+assign [class="libreoffice-draw"] $ws6
+assign [class="libreoffice-math"] $ws6
+assign [class="libreoffice-impress"] $ws6
+assign [class="libreoffice-draw"] $ws6
+assign [class="libreoffice-base"] $ws6
+assign [class="libreoffice"] $ws6
+assign [class="Opera"] $ws3
+# assign [class="kitty"] $ws1
+assign [class="stellarium"] $ws5
+assign [class="GeoGebra"] $ws5
+assign [class="kalzium"] $ws5
+assign [class="gnome-genius"] $ws5
+assign [class="Falkon"] $ws3
+assign [class="Telegram"] $ws3
+assign [class="Blueman-manager"] $ws10
+assign [class="Vmware"] $ws11
+assign [class="copyq"] $ws10
+assign [class="Thunderbird"] $ws3
+assign [class="processing-app-Base"] $ws2
+assign [class="Designer"] $ws2
+assign [class="Yandex-browser-beta"] $ws3
+assign [class="Code"] $ws2
+assign [class="okular"] $ws6
+assign [class="corectrl"] $ws10
+assign [class="Chromium"] $ws3
+assign [class="DBeaver"] $ws2
+assign [class="pulseaudio-equalizer.py"] $ws10
+assign [class="jetbrains-goland"] $ws2
+assign [class="Pulseaudio-equalizer-gtk"] $ws10
+assign [class="jetbrains-idea"] $ws2
+assign [class="Unity"] $ws2
+assign [class="UnityHub"] $ws2
+assign [class="jetbrains-rider"] $ws2
+assign [class="Spotify"] $ws7
+#assign [class=""] $ws
+#assign [class=""] $ws
+#assign [class=""] $ws
+#assign [class=""] $ws
+
+
+##
+#Floating Windows
+#for_window [class="kitty"] floating enable
+
+
+######################
+#####  AutoStart  ####
+######################
+exec compton -i 1 -o 0 & # compton window transperancy manager
+exec --no-startup-id nitrogen --restore # N2 Wallpaper manager
+exec --no-startup-id nm-applet --restore  #NetworkManager Applet
+exec --no-startup-id xfce4-power-manager --restore # XfcePowerManager
+exec --no-startup-id kdeconnect-indicator --restore # KDE Connect
+#exec --no-startup-id qbittorrent --restore #qBittorrent
+#exec --no-startup-id wicd-gtk # Wicd
+#exec --no-startup-id megasync #MegaSync
+exec --no-startup-id ~/.config/polybar/launch.sh #Launch polybar
+exec --no-startup-id  blueman-manager #Bluetooth manager
+# exec  kitty tty-clock -scx #Kitty hello
+exec --no-startup-id /usr/lib64/libexec/polkit-kde-authentication-agent-1 # Polkit Agent
+exec --no-startup-id copyq  #CopyQ
+exec gnome-keyring-daemon --login
+exec /usr/bin/gnome-keyring --login # keyring
+exec yandex-disk start # yandex disk
+exec yandex-disk-indicator # yandex disk indicator
+exec telegram-desktop --restore
+exec --no-startup-id /usr/lib/xfce4/notifyd/xfce4-notifyd # xfce4 notifications
+exec --no-startup-id ~/.local/bin/eDP_ONLY.sh # nerfed screen resolution
+
+# resize window (you can also use the mouse for that)
+mode "Resize" {
+# These bindings trigger as soon as you enter the resize mode
+	bindsym Left resize shrink width 10 px or 10 ppt
+		bindsym Down resize grow height 10 px or 10 ppt
+		bindsym Up resize shrink height 10 px or 10 ppt
+		bindsym Right resize grow width 10 px or 10 ppt
+
+# back to normal: Enter or Escape or $mod+r
+		bindsym Return mode "default"
+		bindsym Escape mode "default"
+		bindsym $mod+r mode "default"
+}
+
+bindsym $mod+r mode "Resize"
+
+# Start i3bar to display a workspace bar (plus the system information i3status
+# finds out, if available)
+
+#############################
+### settings for i3-gaps: ###
+#############################
+for_window [class="kitty"] border pixel 0
+gaps inner 5
+gaps outer 5
+
+# border_radius 16
+
