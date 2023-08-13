@@ -98,10 +98,10 @@ alias ssh='TERM=xterm-256color ssh'
 alias dive="docker run -ti --rm  -v /var/run/docker.sock:/var/run/docker.sock wagoodman/dive"
 
 # rust replacements
-#alias ls="exa" # yay exa :)
-#alias grep="rg" # ripgrep
-#alias cat="bat"
-#alias catt="cat"
+alias ls="exa" # yay exa :)
+alias grep="rg" # ripgrep
+alias cat="bat"
+alias catt="cat"
 
 . "$HOME/.cargo/env"
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
