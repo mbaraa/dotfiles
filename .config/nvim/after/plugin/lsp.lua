@@ -13,6 +13,7 @@ lsp.setup_servers({
 })
 
 -- Fix Undefined global 'vim'
+-- require('lspconfig').sumneko_lua.setup {}
 lsp.configure('sumneko_lua', {
     settings = {
         Lua = {

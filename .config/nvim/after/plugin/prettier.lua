@@ -1,7 +1,6 @@
 local prettier = require("prettier")
 
 prettier.setup({
-  -- install from https://github.com/fsouza/prettierd
   bin = 'prettierd', -- or `'prettierd'` (v0.22+)
   filetypes = {
     "css",
