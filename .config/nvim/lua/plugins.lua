@@ -85,5 +85,9 @@ return require('packer').startup(function(use)
 
   use 'mattreduce/vim-mix'
   use 'carlosgaldino/elixir-snippets'
+
   use 'eandrju/cellular-automaton.nvim'
+
+  use 'APZelos/blamer.nvim'
+
 end)
