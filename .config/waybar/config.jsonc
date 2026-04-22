@@ -1,0 +1,153 @@
+{
+  "layer": "top",
+  // "output": ["eDP-1", "DP-1"],
+  "modules-left": [
+    // "custom/apps",
+    // "custom/close_window",
+    "sway/workspaces",
+    "mpd",
+    "sway/mode",
+    "sway/window",
+  ],
+  "modules-center": ["clock", "custom/weather"],
+  "modules-right": [
+    "idle_inhibitor",
+    "network",
+    "pulseaudio",
+    "temperature",
+    "cpu",
+    "memory",
+    "battery",
+    "tray",
+  ],
+  "mpd": {
+    "tooltip": false,
+    "format": "{stateIcon} {artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S})",
+    "format-disconnected": "ﳌ ",
+    "format-stopped": " ",
+    "state-icons": {
+      "playing": " ",
+      "paused": " ",
+    },
+  },
+  "pulseaudio": {
+    "tooltip": false,
+    "scroll-step": 5,
+    "format": "{icon} {volume}%",
+    "format-alt": "{icon} {volume}% {format_source}",
+    "format-bluetooth": "{icon} {volume}%  {format_source}",
+    "format-bluetooth-muted": " {icon}",
+    "format-muted": " ",
+    "format-source": "󰍬 {volume}%",
+    "format-source-muted": "",
+    "format-icons": {
+      "headphone": " ",
+      "hands-free": " ",
+      "headset": " ",
+      "phone": "",
+      "portable": "",
+      "car": "",
+      "default": [" ", " ", " "],
+    },
+    "on-click-right": "pavucontrol",
+  },
+  "network": {
+    "tooltip": false,
+    "format-wifi": "  {essid}",
+    "format-alt": "  {ipaddr}",
+    "format-ethernet": " {ipaddr}",
+    "on-click-right": "kitty -e nmtui",
+  },
+  "cpu": {
+    "tooltip": false,
+    "format": " {}%",
+    "on-click": "kitty -e htop",
+  },
+  "memory": {
+    "tooltip": false,
+    "format": "󰘚  {}%",
+    "on-click": "kitty -e htop",
+  },
+  "temperature": {
+    "tooltip": false,
+    "format": " {}°C",
+    "on-click": "kitty -e htop",
+  },
+  "tray": {
+    "spacing": 10,
+    // "icons": {
+    //   "blueman": "bluetooth",
+    //   "TelegramDesktop": "$HOME/.local/share/icons/hicolor/16x16/apps/telegram.png"
+    // }
+  },
+  "clock": {
+    "tooltip-format": "<tt><small>{calendar}</small></tt>",
+    "calendar": {
+      "mode": "year",
+      "mode-mon-col": 3,
+      "weeks-pos": "right",
+      "on-scroll": 1,
+      "format": {
+        "months": "<span color='#ffead3'><b>{}</b></span>",
+        "days": "<span color='#ecc6d9'><b>{}</b></span>",
+        "weeks": "<span color='#99ffdd'><b>W{}</b></span>",
+        "weekdays": "<span color='#ffcc66'><b>{}</b></span>",
+        "today": "<span color='#ff6699'><b><u>{}</u></b></span>",
+      },
+    },
+    "actions": {
+      "on-click-right": "mode",
+      "on-scroll-up": "tz_up",
+      "on-scroll-down": "tz_down",
+      "on-scroll-up": "shift_up",
+      "on-scroll-down": "shift_down",
+    },
+    "format-alt": "{:%Y-%m-%d - %H:%M:%S}",
+    "interval": 1,
+    "format": "{:%H:%M:%S}",
+  },
+  "custom/weather": {
+    "exec": "python $HOME/.config/waybar/weather.py",
+    "format": "󰼴 {text}",
+  },
+  "custom/apps": {
+    "on-click": "$HOME/.config/rofi/launchers/type-1/launcher.sh",
+    "format": " ",
+    "tooltip": "Open apps menu suka!",
+  },
+  "custom/close_window": {
+    "on-click": "kill `swaymsg -t get_tree | jq '.. | select(.type?) | select(.focused==true) | .pid'`",
+    "format": "󰧻 ",
+    "tooltip": "KILL IT!",
+  },
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+      "activated": " ",
+      "deactivated": " ",
+    },
+  },
+  "sway/window": {
+    "max-length": 50,
+    "all-outputs": true,
+    "icon": true,
+    "icon-size": 24,
+  },
+  "sway/workspaces": {
+    "all-outputs": false,
+  },
+  "battery": {
+    "states": {
+      // "good": 95,
+      "warning": 30,
+      "critical": 15,
+    },
+    "format": "{icon} {capacity}%",
+    "format-charging": " {capacity}%",
+    "format-plugged": " {capacity}%",
+    "format-alt": "{icon} {time}",
+    // "format-good": "", // An empty format will hide the module
+    // "format-full": "",
+    "format-icons": [" ", " ", " ", " ", " "],
+  },
+}
