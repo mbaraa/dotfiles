@@ -1,6 +1,6 @@
-vim.api.nvim_set_keymap('i', '<F2>', '<cmd>lua require("renamer").rename()<cr>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>rn', '<cmd>lua require("renamer").rename()<cr>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('v', '<leader>rn', '<cmd>lua require("renamer").rename()<cr>', { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap('i', '<leader>rn', '<cmd>lua require("renamer").rename()<cr>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<F2>', '<cmd>lua require("renamer").rename()<cr>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('v', '<F2>', '<cmd>lua require("renamer").rename()<cr>', { noremap = true, silent = true })
 
 local mappings_utils = require('renamer.mappings.utils')
 require('renamer').setup {

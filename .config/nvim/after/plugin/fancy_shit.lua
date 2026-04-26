@@ -1,0 +1,8 @@
+-- local smear = require('smear_cursor')
+-- smear.enabled = true
+-- smear.setup({
+--  --   stiffness = 0.5,
+--  --   trailing_stiffness = 0.2,
+--  --   distance_stop_animating = 0.2,
+--  --   hide_target_hack = true,
+-- })

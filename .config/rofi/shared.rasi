@@ -1,0 +1,26 @@
+/**
+ *
+ * Author : Hexagon16 (aka mbaraa)
+ * Github : @mbaraa
+ *
+ **/
+
+* {
+    // gruvbox-dark theme
+    //  background:     #282828FF;
+    //  background-alt: #353535FF;
+    //  foreground:     #EBDBB2FF;
+    //  selected:       #83A598FF;
+    //  active:         #B8BB26FF;
+    //  urgent:         #FB4934FF;
+
+    // gruvbox-light theme
+    background:     #FBF1C7FF;
+    background-alt: #EBDBB2FF;
+    foreground:     #3C3836FF;
+    selected:       #458588FF;
+    active:         #79740EFF;
+    urgent:         #9D0006FF;
+
+    font:           "Oxygen-Sans Sans-Book 10";
+}

@@ -5,19 +5,23 @@ return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
 
   use {
-	  'nvim-telescope/telescope.nvim', tag = '0.1.1',
-	  -- or                            , branch = '0.1.x',
-	  requires = { {'nvim-lua/plenary.nvim'} }
+      'nvim-telescope/telescope.nvim', version = '*',
+      dependencies = {
+          'nvim-lua/plenary.nvim',
+          { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
+      }
   }
-
-  use({
-      "kelly-lin/telescope-ag",
-      requires = { "nvim-telescope/telescope.nvim" },
-  })
 
   use { "ellisonleao/gruvbox.nvim" }
 
-  use ('nvim-treesitter/nvim-treesitter', {run =  ':TSUpdate'})
+  use {
+      'nvim-treesitter/nvim-treesitter',
+      requires = {
+          "nvim-treesitter/playground",
+      },
+      build = ":TSUpdate",
+      lazy = false,
+  }
 
   use 'nvim-treesitter/playground'
 
@@ -25,34 +29,60 @@ return require('packer').startup(function(use)
 
   use 'tpope/vim-fugitive'
 
+
+  ----------------
+  -- LSP stuff
+
   use {
-	  'VonHeikemen/lsp-zero.nvim',
-	  branch = 'v1.x',
-	  requires = {
-		  -- LSP Support
-		  {'neovim/nvim-lspconfig'},             -- Required
-		  {'williamboman/mason.nvim'},           -- Optional
-		  {'williamboman/mason-lspconfig.nvim'}, -- Optional
-
-		  -- Autocompletion
-		  {'hrsh7th/nvim-cmp'},         -- Required
-		  {'hrsh7th/cmp-nvim-lsp'},     -- Required
-		  {'hrsh7th/cmp-buffer'},       -- Optional
-		  {'hrsh7th/cmp-path'},         -- Optional
-		  {'saadparwaiz1/cmp_luasnip'}, -- Optional
-		  {'hrsh7th/cmp-nvim-lua'},     -- Optional
-
-		  -- Snippets
-		  {'L3MON4D3/LuaSnip'},             -- Required
-		  {'rafamadriz/friendly-snippets'}, -- Optional
-	  }
+      'neovim/nvim-lspconfig',
+      tag = 'v1.8.0',
+      pin = true,
+      opts = {
+      }
   }
+  use {'mason-org/mason.nvim', tag = 'v1.11.0', pin = true}
+  use {'mason-org/mason-lspconfig.nvim', tag = 'v1.32.0', pin = true}
+
+  -- Autocompletion
+  use {
+      "hrsh7th/nvim-cmp",
+      requires = {
+          "jcha0713/cmp-tw2css",
+          'hrsh7th/cmp-buffer',
+          'hrsh7th/cmp-path',
+          'hrsh7th/cmp-nvim-lsp',
+          'saadparwaiz1/cmp_luasnip',
+          "hrsh7th/cmp-calc",
+          "davidsierradz/cmp-conventionalcommits",
+          "ray-x/cmp-sql",
+          'hrsh7th/cmp-nvim-lua',
+          {
+              "ogaken-1/cmp-tsnip",
+              requires = {
+                  "vim-denops/denops.vim"
+              }
+          },
+      },
+  }
+
+  -- Snippets
+  use	  {'L3MON4D3/LuaSnip'}
+  use	  {'rafamadriz/friendly-snippets'}
+
+  -- End of LSP stuff
+  ----------------
 
   use 'preservim/nerdtree'
 
   use 'tomtom/tcomment_vim'
 
-  use 'MunifTanjim/prettier.nvim'
+  use {
+      'MunifTanjim/prettier.nvim',
+      requires = {
+          {'neovim/nvim-lspconfig'},
+          {'MunifTanjim/prettier.nvim'}
+      }
+  }
 
   use 'sbdchd/neoformat'
 
@@ -68,13 +98,6 @@ return require('packer').startup(function(use)
   use {
       "folke/todo-comments.nvim",
       requires = "nvim-lua/plenary.nvim",
-      config = function()
-          require("todo-comments").setup {
-              -- your configuration comes here
-              -- or leave it empty to use the default settings
-              -- refer to the configuration section below
-          }
-      end
   }
 
   use {
@@ -90,4 +113,47 @@ return require('packer').startup(function(use)
 
   use 'APZelos/blamer.nvim'
 
+  use {
+      "nvim-neotest/neotest",
+      requires = {
+          "nvim-neotest/nvim-nio",
+          "nvim-lua/plenary.nvim",
+          "antoinemadec/FixCursorHold.nvim",
+          "nvim-neotest/neotest-go",
+      },
+      config = function()
+          local neotest_ns = vim.api.nvim_create_namespace("neotest")
+          vim.diagnostic.config({
+              virtual_text = {
+                  format = function(diagnostic)
+                      local message =
+                      diagnostic.message:gsub("\n", " "):gsub("\t", " "):gsub("%s+", " "):gsub("^%s+", "")
+                      return message
+                  end,
+              },
+          }, neotest_ns)
+      end,
+  }
+
+  use 'wellle/context.vim'
+
+  use 'tomasky/bookmarks.nvim'
+
+  use 'voldikss/vim-floaterm'
+
+  use 'sangdol/mintabline.vim'
+
+  use 'romainl/vim-qf'
+
+  -- use 'sphamba/smear-cursor.nvim'
+
+  use {
+      'mvllow/modes.nvim',
+      tag = 'v0.2.1',
+      config = function()
+          require('modes').setup()
+      end
+  }
+
+  use 'onsails/lspkind.nvim'
 end)

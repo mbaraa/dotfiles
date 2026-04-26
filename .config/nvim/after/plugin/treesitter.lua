@@ -1,26 +1,32 @@
-require'nvim-treesitter.configs'.setup {
-  -- A list of parser names, or "all" (the four listed parsers should always be installed)
-  ensure_installed = { "c", "cpp", "elixir", "javascript", "typescript", "go", "rust", "java", "lua", "vim", "help", "json", "html", "css", "svelte", "python" },
+-- require('nvim-treesitter.config').setup {
+--   ensure_installed = { "lua", "rust", "toml", "c", "cpp", "go", "elixir", "typescript", "javascript", "vim", "json", "html", "css", "svelte", "templ" },
+--   auto_install = true,
+--   highlight = {
+--     enable = true,
+--     additional_vim_regex_highlighting=false,
+--   },
+--   ident = { enable = true },
+--   rainbow = {
+--     enable = true,
+--     extended_mode = true,
+--     max_file_lines = nil,
+--   }
+-- }
 
-  -- Install parsers synchronously (only applied to `ensure_installed`)
-  sync_install = false,
+local treesitter = require("nvim-treesitter")
+vim.opt.runtimepath:append(',~/.local/share/nvim/site/')
+treesitter.setup()
+treesitter.install { "lua", "rust", "toml", "c", "cpp", "go", "elixir", "typescript", "javascript", "vim", "json", "html", "css", "svelte", "templ", "yaml", "tsx", "jsx", "python" }
 
-  -- Automatically install missing parsers when entering buffer
-  -- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
-  auto_install = true,
+vim.api.nvim_create_autocmd('FileType', {
+    pattern = { "lua", "rust", "toml", "c", "cpp", "go", "elixir", "typescript", "javascript", "vim", "json", "html", "css", "svelte", "templ", "yaml", "tsx", "jsx", "python" },
+    callback = function()
+        vim.treesitter.start()
+        -- folds, provided by Neovim (I don't like folds)
+        -- vim.wo.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+        -- vim.wo.foldmethod = 'expr'
+        -- indentation, provided by nvim-treesitter
+        vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+    end,
+})
 
-  ---- If you need to change the installation directory of the parsers (see -> Advanced Setup)
-  -- parser_install_dir = "/some/path/to/store/parsers", -- Remember to run vim.opt.runtimepath:append("/some/path/to/store/parsers")!
-
-  highlight = {
-    -- `false` will disable the whole extension
-    enable = true,
-
-    -- Or use a function for more flexibility, e.g. to disable slow treesitter highlight for large files
-    -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
-    -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
-    -- Using this option may slow down your editor, and you may see some duplicate highlights.
-    -- Instead of true it can also be a list of languages
-    additional_vim_regex_highlighting = false,
-  },
-}

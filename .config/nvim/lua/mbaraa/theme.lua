@@ -1,4 +1,4 @@
-vim.o.background = "dark"
+vim.o.background = "light"
 vim.cmd.colorscheme("gruvbox")
 
 -- 0 is for global space

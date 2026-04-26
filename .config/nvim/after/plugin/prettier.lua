@@ -1,7 +1,7 @@
 local prettier = require("prettier")
 
 prettier.setup({
-  bin = 'prettierd', -- or `'prettierd'` (v0.22+)
+  bin = 'prettier', -- or `'prettierd'` (v0.22+)
   filetypes = {
     "css",
     "go",
@@ -16,12 +16,26 @@ prettier.setup({
     "scss",
     "svelte",
     "sveltekit",
+    "templ",
     "typescript",
     "typescriptreact",
     "yaml",
   },
+});
+
+local autocmd = vim.api.nvim_create_autocmd   -- Create autocommand
+
+autocmd('BufWritePre', {
+  pattern = '',
+  command = ":Neoformat"
 })
 
-vim.api.nvim_create_autocmd("BufWritePre *", {
-	command = "Neoformat"
+autocmd('BufWritePost', {
+    pattern = "*.rs",
+    command = ":silent! !rustfmt % --edition=2021"
+})
+
+autocmd('BufWritePre', {
+  pattern = '',
+  command = ":%s/\\s\\+$//e"
 })

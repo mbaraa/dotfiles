@@ -1,4 +1,5 @@
-#Hexagon16's (aka mbaraa) Configuration
+#Hexagon16's Configuration
+
 
 #KeyBindings:
 
@@ -13,14 +14,25 @@ set $right l
 
 ### Output configuration
 
-set $mon1 "DP-7"
-set $mon2 "HDMI-A-4"
+# set $mon0 "eDP-1"
+set $mon1 "DP-2"
+set $mon2 "HDMI-A-1"
 
+output $mon0 bg "~/General/Groot/Wallpapers/Not Mustafar Cats.png" fill
 output $mon1 bg "~/General/Groot/Wallpapers/Not Mustafar Cats.png" fill
 output $mon2 bg "~/General/Groot/Wallpapers/CatsPK.png" fill
-
+# external big screen
 output $mon1 resolution 1920x1080@180Hz position 0 0
 output $mon2 resolution 1920x1080 position 1920 0 transform 270
+# adri's lower screen
+# output DP-2 resolution 1440x900 position 0 1200
+# the dank lenovo screen
+# output HDMI-A-2 resolution 1440x900 position 0 0 transform 90
+
+# enable external
+bindcode $mod+34 exec swaymsg "output $mon1 enable" && swaymsg "output $mon2 enable" && swaymsg "output $mon0 disable" && swaymsg "output $mon1 resolution 1920x1080@180Hz position 0 0" && swaymsg "output $mon2 resolution 1920x1080 position 1920 0 orientation 270"
+# enable internal
+bindcode $mod+35 exec swaymsg "output $mon1 disable" && swaymsg "output $mon2 disable" && swaymsg "output $mon0 enable" && swaymsg "output $mon0 resolution 1920x1200 position 0 0"
 
 ### Idle configuration
 exec swayidle -w \
@@ -56,8 +68,19 @@ bindsym $mod+Return exec kitty
 # kill focused window
 bindsym $mod+Shift+q kill
 
-# start Rofi
-bindsym $mod+d exec $HOME/.config/rofi/launchers/type-1/launcher.sh
+# launch Rofi
+bindsym $mod+d exec rofi \
+    -show drun \
+    -theme $HOME/.config/rofi/style.rasi
+
+# launch Rofi screenshot
+bindsym $mod+Print exec $HOME/.config/rofi/screenshot/launch.sh
+
+# launch Rofi wifi
+bindsym $mod+Shift+w exec $HOME/.config/rofi/wifi/launch.sh
+
+# launch Rofi power menu
+bindsym $mod+Shift+e exec $HOME/.config/rofi/powermenu/launch.sh
 
 # change focus
 bindsym $mod+Left focus left
@@ -98,9 +121,6 @@ bindsym $mod+a focus parent
 bindsym $mod+Shift+r reload
 
 bindsym $mod+x exec "$HOME/.config/sway/lock.sh"
-
-# Exit sway (logs you out of your Wayland session)
-bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
 
 # Drag floating windows by holding down $mod and left mouse button.
 # Resize them with right mouse button + $mod.
