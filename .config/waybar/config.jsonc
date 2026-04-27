@@ -5,11 +5,10 @@
     // "custom/apps",
     // "custom/close_window",
     "sway/workspaces",
-    "mpd",
     "sway/mode",
     "sway/window",
   ],
-  "modules-center": ["clock", "custom/weather"],
+  "modules-center": ["clock", "custom/weather", "mpd"],
   "modules-right": [
     "idle_inhibitor",
     "network",
@@ -21,8 +20,10 @@
     "tray",
   ],
   "mpd": {
+    "max-length": 35,
     "tooltip": false,
-    "format": "{stateIcon} {artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S})",
+    // "format": "{stateIcon} {artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S})",
+    "format": "{stateIcon} {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S})",
     "format-disconnected": "ﳌ ",
     "format-stopped": " ",
     "state-icons": {
