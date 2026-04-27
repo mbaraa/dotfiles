@@ -373,28 +373,8 @@ exec dbus-update-activation-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK DBUS_SE
 
 exec export $(dbus-launch)
 
-## # exec dbus-update-activation-environment DISPLAY I3SOCK SWAYSOCK WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
-## # exec gentoo-pipewire-launcher restart &
-## exec /usr/libexec/xdg-desktop-portal-wlr
-## exec /usr/libexec/xdg-desktop-portal -r
 exec /usr/lib64/xdg-desktop-portal -r
 exec /usr/lib64/xdg-desktop-portal-wlr
-
-## # remove on harvey
-## # exec /usr/libexec/iio-sensor-proxy -v -r
-## # exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK DBUS_SESSION_BUS_ADDRESS
-## exec --no-startup-id xfce4-power-manager --restore # XfcePowerManager
-## exec --no-startup-id kdeconnect-indicator --restore # KDE Connect
-## exec kitty tty-clock -scx #Kitty hello
-## # exec --no-startup-id /usr/libexec/polkit-mate-authentication-agent-1
-## exec --no-startup-id /usr/lib/polkit-kde-authentication-agent-1
-## # exec --no-startup-id /usr/lib64/libexec/polkit-kde-authentication-agent-1 # Polkit Agent
-## exec --no-startup-id copyq  #CopyQ
-## exec gnome-keyring-daemon --login
-## exec /usr/bin/gnome-keyring --login # keyring
-## exec udiskie
-## exec waybar
-## exec mako --default-timeout 3000
 
 exec --no-startup-id xfce4-power-manager --restore # XfcePowerManager
 exec --no-startup-id kdeconnect-indicator --restore # KDE Connect
@@ -404,12 +384,10 @@ exec rofi-polkit-agent -theme $HOME/.config/rofi/launchers/type-1/style-5.rasi
 exec --no-startup-id copyq  #CopyQ
 exec gnome-keyring-daemon --login
 # exec /usr/bin/gnome-keyring --login # keyring
-# exec --no-startup-id ~/.local/bin/eDP_ONLY.sh # nerfed screen resolution
 exec udiskie
 exec waybar
 exec mako --default-timeout 3000
-# exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK DBUS_SESSION_BUS_ADDRESS
-# exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK DBUS_SESSION_BUS_ADDRESS
+exec mpd
 
 #
 # Resizing containers:
