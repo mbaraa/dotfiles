@@ -30,6 +30,9 @@
       "playing": " ",
       "paused": " ",
     },
+    "on-click": "mpc next",
+    "on-click-right": "mpc previous",
+    "on-click-middle": "mpc toggle",
   },
   "pulseaudio": {
     "tooltip": false,
