@@ -1,5 +1,4 @@
-#Hexagon16's Configuration
-
+#Hexagon16's (aka mbaraa) Configuration
 
 #KeyBindings:
 
@@ -21,13 +20,13 @@ set $mon2 "HDMI-A-1"
 output $mon0 bg "~/General/Groot/Wallpapers/Not Mustafar Cats.png" fill
 output $mon1 bg "~/General/Groot/Wallpapers/Not Mustafar Cats.png" fill
 output $mon2 bg "~/General/Groot/Wallpapers/CatsPK.png" fill
-# external big screen
+
+# laptop internal screen
+# output $mon0 resolution 1920x1080 position 0 0
+# fancy msi nugget
 output $mon1 resolution 1920x1080@180Hz position 0 0
+# lenovo dank screen
 output $mon2 resolution 1920x1080 position 1920 0 transform 270
-# adri's lower screen
-# output DP-2 resolution 1440x900 position 0 1200
-# the dank lenovo screen
-# output HDMI-A-2 resolution 1440x900 position 0 0 transform 90
 
 # enable external
 bindcode $mod+34 exec swaymsg "output $mon1 enable" && swaymsg "output $mon2 enable" && swaymsg "output $mon0 disable" && swaymsg "output $mon1 resolution 1920x1080@180Hz position 0 0" && swaymsg "output $mon2 resolution 1920x1080 position 1920 0 orientation 270"
