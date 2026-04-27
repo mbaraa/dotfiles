@@ -67,7 +67,7 @@ run_cmd() {
 		elif [[ $1 == '--logout' ]]; then
 			if [[ "$DESKTOP_SESSION" == 'i3' ]]; then
 				i3-msg exit
-			elif [[ "$DESKTOP_SESSION" == 'sway' ]]; then
+			elif [[ "$XDG_CURRENT_DESKTOP" == 'sway' ]]; then
                 swaymsg exit
 			elif [[ "$DESKTOP_SESSION" == 'plasma' ]]; then
 				qdbus org.kde.ksmserver /KSMServer logout 0 0 0
@@ -90,7 +90,7 @@ case ${chosen} in
     $lock)
         if [[ "$DESKTOP_SESSION" == 'i3' ]]; then
             $HOME/.config/i3/lock.sh
-        elif [[ "$DESKTOP_SESSION" == 'sway' ]]; then
+        elif [[ "$XDG_CURRENT_DESKTOP" == 'sway' ]]; then
             $HOME/.config/sway/lock.sh
         fi
         ;;
