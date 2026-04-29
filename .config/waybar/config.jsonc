@@ -8,7 +8,7 @@
     "sway/mode",
     "sway/window",
   ],
-  "modules-center": ["clock", "custom/weather", "mpd"],
+  "modules-center": ["clock", "custom/weather", "image#album-art", "mpd"],
   "modules-right": [
     "idle_inhibitor",
     "network",
@@ -24,15 +24,20 @@
     "tooltip": false,
     // "format": "{stateIcon} {artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S})",
     "format": "{stateIcon} {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S})",
-    "format-disconnected": "ﳌ ",
-    "format-stopped": " ",
+    "format-disconnected": "ﳌ",
+    "format-stopped": "",
     "state-icons": {
-      "playing": " ",
-      "paused": " ",
+      "playing": "",
+      "paused": "",
     },
     "on-click": "mpc next",
     "on-click-right": "mpc previous",
     "on-click-middle": "mpc toggle",
+  },
+  "image#album-art": {
+    "exec": "~/.config/waybar/mpd_album_cover.sh",
+    "size": 24,
+    "interval": 30,
   },
   "pulseaudio": {
     "tooltip": false,
